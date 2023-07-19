@@ -1,68 +1,126 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
 body {
-    background: #eee;
+    body {
+        min-height: 100%;
+        background: #eee;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
+        font-weight: 400;
+        color: #222;
+        font-size: 14px;
+        line-height: 26px;
+        padding-bottom: 50px;
+    }
 }
 
 .container {
-    margin: 0px auto 0px;
+    max-width: 700px;
+    background: #fff;
+    margin: 0px auto;
+    box-shadow: 1px 1px 2px #DAD7D7;
+    border-radius: 3px;
     padding: 40px;
-    width: 700px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.full-name {
-    font-size: 60px;
-    text-transform: uppercase;
-
-}
-
-.last-name {
-    font-weight: 20;
-}
-
-.contact-info {
-    font-size: 14px;
+.header {
     margin-bottom: 30px;
 }
 
-.email,
-.phone {
-    color: grey;
+.header .full-name {
+    font-size: 40px;
+    margin-bottom: 5px;
 }
 
-.separator {
-    margin-right: 20px;
-    margin-left: 20px;
+.header .first-name {
+    font-weight: 700;
 }
 
-.position {
-    text-decoration: underline;
-    font-weight: bold;
+.header .last-name {
+    font-weight: 300;
 }
 
-.about,
-.section__list-item,
-.skills__item {
-    margin-bottom: 50px;
-}
-
-.section__title {
-    color: #54afe4;
+.header .contact-info {
     margin-bottom: 20px;
-    font-size: 20px;
 }
 
-.left,
-.right {
+.header .email,
+.header .phone {
+    color: grey;
+    font-weight: 300;
+}
+
+.header .separator {
+    border-left: 2px solid grey;
+    height: 10px;
     display: inline-block;
-    width: 49%;
-    vertical-align: text-top;
+    margin: 0 10px;
 }
 
-.right {
+.header .position {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+.details {
+    line-height: 20px;
+}
+
+
+.details .section {
+    margin-bottom: 40px;
+}
+
+.details .section:last-of-type {
+    margin-bottom: 0px;
+}
+
+.details .section__title {
+    letter-spacing: 2px;
+    color: #54AFE4;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.details .section__list-item {
+    margin-bottom: 40px;
+}
+
+.details .section__list-item:last-of-type {
+
+    margin-bottom: 0;
+}
+
+.section__list-item,
+.details .skills__item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details .right {
     text-align: right;
 }
 
-.name {
+.details .name {
     font-weight: bold;
+}
+
+.details .skills__item {
+
+    margin-bottom: 10px;
 }
 
 input {
@@ -70,14 +128,16 @@ input {
 }
 
 label {
+    /* 转换为行内块元素 */
     display: inline-block;
-    height:30px;
-    width:30px;
-    border-radius:15px;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
     background: rgb(184, 238, 238);
     margin-right: 3px;
 }
 
+/* 选择时改变标签背景色 */
 input:checked+label {
     background: rgb(20, 239, 239);
 }
