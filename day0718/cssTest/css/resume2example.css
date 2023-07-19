@@ -19,7 +19,8 @@ body {
     /* 背景色 */
     background: #eee;
     /* 字体 */
-    font-family: 'Lato', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif
+    ;
     /* 字体粗细 */
     font-weight: 400;
     /* 文字颜色 */
