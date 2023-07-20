@@ -95,12 +95,13 @@ footer div{
 
 }
 
-footer div::before{
+footer div p:nth-child(1):before{
     content:"\“";
+    font-family: Arial;
     color:rgba(84, 232, 168, 0.885);
     font-size: 40px;
-    display: inline-block;
     position: absolute 0 0;
+    margin-right: 5px;
 }
 
 .sentence{
