@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 转换属性 transform</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color:blueviolet;
+            background-image: url(./image/QQ图片20230720103937.jpg);
+            background-size: cover;
+            transform: translateX(0px);
+            transform: translateY(0px);
+            transform: translateZ(0px);
+            transform: rotateY(0deg) translateZ(0px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

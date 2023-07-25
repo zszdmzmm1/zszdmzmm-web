@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 转换过渡 transition</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+        }
+        .box {
+            color: aliceblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+            background-color:blueviolet;
+        }
+
+        @keyframes yellow-red {
+            from{background-color: blue;}
+            to{background-color: red;}
+        }
+
+        @keyframes multiply-color-change {
+            0% {background-color: blue}
+            25% {background-color: white}
+            50% {background-color: lightblue}
+            75% {background-color: grey}
+            100% {background-color: blue}
+        }
+
+        @keyframes multiply-change {
+            0% {background-color: blue;}
+            25% {background-color: white; width: 200px}
+            50% {background-color: lightblue; width: 300px}
+            75% {background-color: grey; width: 200px}
+            100% {background-color: blue; width: 100px}
+        }
+
+        .box:first-child:hover{
+            animation-name: yellow-red;
+            animation-duration: 2s;
+        }
+
+        .box:nth-child(2):hover{
+            animation-name: multiply-color-change;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        .box:nth-child(3):hover{
+            animation-name: multiply-color-change;
+            animation-duration: 4s;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <a href="https://cubic-bezier.com/" target="_blank">timing function</a>
+</body>
+</html>
