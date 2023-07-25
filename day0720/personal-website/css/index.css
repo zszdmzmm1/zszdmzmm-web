@@ -96,7 +96,7 @@ footer div{
 }
 
 footer div p:nth-child(1):before{
-    content:"\“";
+    content:"“";
     font-family: Arial;
     color:rgba(84, 232, 168, 0.885);
     font-size: 40px;
