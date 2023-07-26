@@ -1,0 +1,17 @@
+svg:hover {
+  path#lt {
+    animation-name: ltHover;
+    animation-duration: 15s;
+    animation-fill-mode: forwards;
+  }
+  path#dot{
+    animation-name: dotHover;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  path#gt {
+    animation-name: gtHover;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+}
