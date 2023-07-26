@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-example</title>
+</head>
+<body>
+    <script>
+        /*变量的声明*/
+        //1.声明并复制
+        var str = "Hello world!";
+        console.log(str);
+        //2.先声明再赋值
+        var str2;
+        str2 = "hello";
+
+        var a;
+        console.log(a);//undefined
+
+        // console.log(b); // b is not defined
+
+        //一条var声明多个变量
+        var aa = 1, bb = 2, cc = 10, dd = 5;
+        console.log(aa, bb, cc, dd);
+
+        // 声明一个存在的变量是无效的
+        var str;
+        console.log(str);
+
+        //若使用var重新声明一个已经存在的变量并赋值，覆盖
+        var str = '你好';
+        console.log(str);
+
+        //JavaScript是一种动态类型 弱类型语言 变量的类型没有限制
+        var flag = true;
+        console.log(true);
+
+        /*变量提升*/
+        console.log(uname);
+        var uname = "zhangsan";//unsefined
+        //等价于
+        var uname;
+        console.log(uname);
+        uname = "zhangsan";
+
+        //只有用var声明的变量，才会被变量声明
+        //upwd = "123456";
+        console.log(upwd);
+        //upwd = "123456";
+
+    </script>
+</body>
+</html>
