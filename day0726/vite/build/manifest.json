@@ -1,0 +1,14 @@
+{
+  "day0726/vite/js/app.css": {
+    "file": "assets/app.css",
+    "src": "day0726/vite/js/app.css"
+  },
+  "day0726/vite/js/app.js": {
+    "css": [
+      "assets/app.css"
+    ],
+    "file": "assets/app.js",
+    "isEntry": true,
+    "src": "day0726/vite/js/app.js"
+  }
+}
