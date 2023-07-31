@@ -53,12 +53,14 @@
         </div>
         <div>
             <button type="button" id="submit" class="btn btn-primary me-3" onclick="finalCheck()">提交</button>
-            <button type="reset" class="btn btn-primary">重置</button>
+            <button type="reset" class="btn btn-primary" onclick="myReset()">重置</button>
             <p id="finalCheckMessage"></p>
         </div>
     </form>
 
     <script>
+
+        //判断用户名
         function userCheck() {
             var num = document.form1.user.value.trim().length;
             if (num <= 4 || num >= 16) {
@@ -70,6 +72,7 @@
             }
         }
 
+        //判断密码
         function passwordCheck() {
             var num = document.form1.password.value.trim().length;
             if (num <= 6 || num >= 12) {
@@ -81,6 +84,7 @@
             }
         }
 
+        //判断是否成年
         function isAdult() {
             if (!document.form1.age[1].checked) {
                 document.getElementById("ageCheck").innerText = "未成年，禁止注册";
@@ -89,6 +93,7 @@
             return true;
         }
 
+        //判断是否选择爱好
         function hobbyChoose() {
             if (document.querySelectorAll('input[name="hobby"]:checked').length === 0) {
                 document.getElementById("hobbyCheck").innerText = "请至少选择一项";
@@ -97,6 +102,7 @@
             return true;
         }
 
+        //判断是否选择地址
         function locationChoose() {
             if (document.querySelector('option[name="noneLocationChoice"]:checked')) {
                 document.getElementById("locationCheck").innerText = "请至少选择一项";
@@ -105,6 +111,7 @@
             return true;
         }
 
+        //提交前的最终检查
         function finalCheck() {
             if (userCheck() === false || passwordCheck() === false || isAdult() === false
                 || hobbyChoose() === false || locationChoose() === false) {
@@ -115,7 +122,16 @@
             document.form1.action = "https://www.baidu.com";
         }
 
-
+        //重置
+        function myReset(){
+            console.log("sjdfajsfl");
+            document.getElementById("userCheck").innerHTML = "";
+            document.getElementById("passwordCheck").innerHTML = "";
+            document.getElementById("ageCheck").innerHTML = "";
+            document.getElementById("hobbyCheck").innerHTML = "";
+            document.getElementById("locationCheck").innerHTML = "";
+            document.getElementById("finalCheckMessage").innerHTML = "";
+        }
     </script>
 </body>
 </html>
