@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form</title>
+    <link rel="stylesheet" href="../day0726/vite/build/assets/app.css">
+</head>
+<body>
+    <form name="form1" class="container">
+        <div class="mb-3">
+            <label for="user" class="form-label">用户：</label>
+            <input type="text" id="user" class="form-control" onblur="userCheck()">
+            <p id="userCheck"></p>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">密码：</label>
+            <input type="password" id="password" class="form-control" onblur="passwordCheck()">
+            <p id="passwordCheck"></p>
+        </div>
+
+        <div class="mb-3">
+            <span>年龄：</span>
+            <input type="radio" name="age" value="0" id="teen" class="form-check-input">
+            <label for="teen" class="form-label me-3">未成年</label>
+            <input type="radio" name="age" value="1" id="adult" class="form-check-input">
+            <label for="adult" class="form-label me-3">成年</label>
+            <p id="ageCheck"></p>
+        </div>
+
+        <div class="mb-3">
+            <span>爱好：</span>
+            <input type="checkbox" name="hobby" id="sing" class="form-check-input">
+            <label for="sing" class="form-label me-3">唱歌</label>
+            <input type="checkbox" name="hobby" id="climb" class="form-check-input">
+            <label for="climb" class="form-label me-3">爬床</label>
+            <input type="checkbox" name="hobby" id="code" class="form-check-input">
+            <label for="code" class="form-label me-3">代码</label>
+            <p id="hobbyCheck"></p>
+        </div>
+        <div class="mb-3">
+            <label for="from" class="form-label">来自：</label>
+            <select name="from" id="from" class="form-select">
+                <option value="0" name="noneLocationChoice">请选择</option>
+                <option value="1">福建</option>
+                <option value="2">浙江</option>
+                <option value="3">江苏</option>
+            </select>
+            <p id="locationCheck"></p>
+        </div>
+        <div>
+            <button type="button" id="submit" class="btn btn-primary me-3" onclick="finalCheck()">提交</button>
+            <button type="reset" class="btn btn-primary">重置</button>
+            <p id="finalCheckMessage"></p>
+        </div>
+    </form>
+
+    <script>
+        function userCheck() {
+            var num = document.form1.user.value.trim().length;
+            if (num <= 4 || num >= 16) {
+                document.getElementById("userCheck").innerText = "请输入4-16长度字符";
+                return false;
+            } else {
+                document.getElementById("userCheck").innerText = "";
+                return true;
+            }
+        }
+
+        function passwordCheck() {
+            var num = document.form1.password.value.trim().length;
+            if (num <= 6 || num >= 12) {
+                document.getElementById("passwordCheck").innerText = "请输入6-12长度字符";
+                return false;
+            } else {
+                document.getElementById("passwordCheck").innerText = "";
+                return true;
+            }
+        }
+
+        function isAdult() {
+            if (!document.form1.age[1].checked) {
+                document.getElementById("ageCheck").innerText = "未成年，禁止注册";
+                return false;
+            }
+            return true;
+        }
+
+        function hobbyChoose() {
+            if (document.querySelectorAll('input[name="hobby"]:checked').length === 0) {
+                document.getElementById("hobbyCheck").innerText = "请至少选择一项";
+                return false;
+            }
+            return true;
+        }
+
+        function locationChoose() {
+            if (document.querySelector('option[name="noneLocationChoice"]:checked')) {
+                document.getElementById("locationCheck").innerText = "请至少选择一项";
+                return false;
+            }
+            return true;
+        }
+
+        function finalCheck() {
+            if (userCheck() === false || passwordCheck() === false || isAdult() === false
+                || hobbyChoose() === false || locationChoose() === false) {
+                document.getElementById("finalCheckMessage").innerText = "注册失败";
+                return false;
+            }
+            document.getElementById("submit").type = "submit";
+            document.form1.action = "https://www.baidu.com";
+        }
+
+
+    </script>
+</body>
+</html>
