@@ -13,13 +13,13 @@
         <div class="mb-3">
             <label for="user" class="form-label">用户：</label>
             <input type="text" id="user" class="form-control" onblur="userCheck()">
-            <p id="userCheck"></p>
+            <p id="userCheck" class="text-danger"></p>
         </div>
 
         <div class="mb-3">
             <label for="password" class="form-label">密码：</label>
             <input type="password" id="password" class="form-control" onblur="passwordCheck()">
-            <p id="passwordCheck"></p>
+            <p id="passwordCheck" class="text-danger"></p>
         </div>
 
         <div class="mb-3">
@@ -28,7 +28,7 @@
             <label for="teen" class="form-label me-3">未成年</label>
             <input type="radio" name="age" value="1" id="adult" class="form-check-input">
             <label for="adult" class="form-label me-3">成年</label>
-            <p id="ageCheck"></p>
+            <p id="ageCheck" class="text-danger"></p>
         </div>
 
         <div class="mb-3">
@@ -39,7 +39,7 @@
             <label for="climb" class="form-label me-3">爬床</label>
             <input type="checkbox" name="hobby" id="code" class="form-check-input">
             <label for="code" class="form-label me-3">代码</label>
-            <p id="hobbyCheck"></p>
+            <p id="hobbyCheck" class="text-danger"></p>
         </div>
         <div class="mb-3">
             <label for="from" class="form-label">来自：</label>
@@ -49,12 +49,12 @@
                 <option value="2">浙江</option>
                 <option value="3">江苏</option>
             </select>
-            <p id="locationCheck"></p>
+            <p id="locationCheck" class="text-danger"></p>
         </div>
         <div>
             <button type="button" id="submit" class="btn btn-primary me-3" onclick="finalCheck()">提交</button>
             <button type="reset" class="btn btn-primary" onclick="myReset()">重置</button>
-            <p id="finalCheckMessage"></p>
+            <p id="finalCheckMessage" class="text-danger"></p>
         </div>
     </form>
 
