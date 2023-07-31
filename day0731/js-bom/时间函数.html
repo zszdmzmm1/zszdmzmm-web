@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时间函数</title>
+</head>
+<body>
+    <button onclick="testTimeFunction()">3秒后响应</button>
+    <script>
+        //方法迭代执行，弹窗关不掉
+        function testTimeFunction(){
+            setInterval(function (){
+                alert("你好");
+            }, 3000)
+        }
+    </script>
+</body>
+</html>
