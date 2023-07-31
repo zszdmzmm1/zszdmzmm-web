@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>改变背景色</title>
+    <style>
+        .bg{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body id="b">
+    <button onclick=changeBgColor()>改变背景颜色</button>
+    <script>
+        function changeBgColor() {
+           var body = document.body;
+           //body.setAttribute("style","background-color: blue");
+           body.setAttribute("class","bg");
+        }
+    </script>
+</body>
+</html>
