@@ -26,6 +26,12 @@
     <script>
         $("#range-slider").bind("change", function(){
             let fontSize = $("#range-slider").val() + "px";
+
+
+            /*以下两种写法阐述了attract与prop的区别，当遇到会动态改变的属性时，attr不会随着状态变化
+            * 而改变，在本例中是错误写法，而prop则可以根据状态改变而改变，是正确的写法*/
+            //let fontSize = $("#range-slider").attr("value") + "px";
+            //let fontSize = $("#range-slider").prop("value") + "px";
             console.log(fontSize)
             $("#range-label").css("font-size", fontSize);
         })
