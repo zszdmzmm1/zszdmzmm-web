@@ -21,20 +21,24 @@
                 value="40"
                 step="1"
         />
+        <button type="button" class="btn btn-primary">切换</button>
 
     </form>
     <script src="../day0726/vite/build/assets/app.js"></script>
     <script>
         $("#range-slider").on("input", function(){
             let fontSize = $("#range-slider").val() + "px";
-
-
             /*以下两种写法阐述了attract与prop的区别，当遇到会动态改变的属性时，attr不会随着状态变化
             * 而改变，在本例中是错误写法，而prop则可以根据状态改变而改变，是正确的写法*/
             //let fontSize = $("#range-slider").attr("value") + "px";
             //let fontSize = $("#range-slider").prop("value") + "px";
             console.log(fontSize)
-            $("#range-label").css("font-size", fontSize);
+            $("button, label").css("font-size", fontSize);
+        })
+
+        $("button").on("click", function (){
+            $("body").toggleClass("bg-black");
+            $("label").toggleClass("text-white");
         })
     </script>
 </body>
