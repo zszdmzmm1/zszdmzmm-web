@@ -20,7 +20,7 @@
             <input type="text" class="form-control" id="insert" placeholder="请输入一个任务"
                    aria-label="Recipient's username"
                    aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="add">Button</button>
+            <button class="btn btn-outline-secondary" type="button" id="add">添加</button>
         </div>
 
     </div>
@@ -31,7 +31,7 @@
         })
 
         $("input#insert").on("keypress", function (e){
-            if(e.keyCode === 13){
+            if(e.key === "Enter"){
                 addTask();
             }
         })
@@ -44,13 +44,12 @@
         function addTask(){
                 const content = $("input#insert").val().trim();
                 if (content) {
-                    let HTML = "<div class=bg-info-subtle border-2 rounded-4 d-flex justify-content-between p-3 mb-2'>" +
-                        "<div class='d-flex justify-content-start task'>" +
-                        "                <input type='checkbox' class='form-check me-2 check'>" +
-                        "                <label for='check' class='align-self-center fs-2'>" + content + "</label>" +
-                        "</div>" +
-                        "<button class='p-2 delete' type='button'>删除</button>" +
-                        "</div>";
+                    let HTML = `<div class="bg-info-subtle border-2 rounded-4 d-flex justify-content-between p-3 mb-2">
+                                    <div class="d-flex justify-content-start task">
+                                        <input type="checkbox" class="form-check me-2 check" value="">
+                                        <label for="check" class="align-self-center fs-2"> ${content} </label>
+                                    </div><button class="p-2 delete" type="button">删除</button>
+                                 </div>`;
                     $("div.input-group").after(HTML);
                     $("input").val("");
                     $("input#insert").focus();
@@ -61,9 +60,8 @@
                     $(this).parent().remove();
                 })
 
-                $("input.check").on("change", function () {
-                    console.log($(this).parent().first());
-                    $(this).parent().first().toggleClass("text-decoration-line-through");
+                $("input.check").on("click", function () {
+                    $(this).siblings().toggleClass("text-decoration-line-through");
                 })
         }
     </script>
