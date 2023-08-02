@@ -8,4 +8,17 @@ if (title) {
     for (var i = 0; i < title.length; i++){
         title[i].innerHTML+=icon;
     }
+
+
 }
+
+//$("[class^='minh'] iframe").css("display", "none");
+
+
+//屏蔽https://htmlcheatsheet.com/jquery/的广告
+document.querySelectorAll("[class^='minh'] iframe").forEach(function (element){
+    element.style.display = "none";
+})
+// for(let i=0; i < arr.length; i++){
+//     arr[i].style.display = "none";
+// }
