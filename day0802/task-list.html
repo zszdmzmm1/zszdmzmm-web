@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tasklist</title>
+    <link rel="stylesheet" href="../day0726/vite/build/assets/app.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg-info" onpageshow="openPage()">
+    <div class="container-sm w-50 my-5 bg-body-tertiary border-2 rounded-4 p-5 shadow-lg">
+        <div class="input-group mb-5" id="delete">
+            <input type="text" class="form-control" id="insert" placeholder="请输入一个任务"
+                   aria-label="Recipient's username"
+                   aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="add">Button</button>
+        </div>
+
+    </div>
+    <script src="../day0726/vite/build/assets/app.js"></script>
+    <script>
+        $("button#add").on("click", function (){
+            addTask();
+        })
+
+        $("input#insert").on("keypress", function (e){
+            if(e.keyCode === 13){
+                addTask();
+            }
+        })
+
+
+        function openPage(){
+            $("input#insert").focus();
+        }
+
+        function addTask(){
+                const content = $("input#insert").val().trim();
+                if (content) {
+                    let HTML = "<div class=bg-info-subtle border-2 rounded-4 d-flex justify-content-between p-3 mb-2'>" +
+                        "<div class='d-flex justify-content-start task'>" +
+                        "                <input type='checkbox' class='form-check me-2 check'>" +
+                        "                <label for='check' class='align-self-center fs-2'>" + content + "</label>" +
+                        "</div>" +
+                        "<button class='p-2 delete' type='button'>删除</button>" +
+                        "</div>";
+                    $("div.input-group").after(HTML);
+                    $("input").val("");
+                    $("input#insert").focus();
+                } else {
+                    $("input").val("");
+                }
+                $("button.delete").on("click", function () {
+                    $(this).parent().remove();
+                })
+
+                $("input.check").on("change", function () {
+                    console.log($(this).parent().first());
+                    $(this).parent().first().toggleClass("text-decoration-line-through");
+                })
+        }
+    </script>
+</body>
+</html>
