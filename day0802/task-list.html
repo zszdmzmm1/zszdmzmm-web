@@ -61,7 +61,7 @@
                 })
 
                 $("input.check").on("click", function () {
-                    $(this).siblings().toggleClass("text-decoration-line-through");
+                    $(this).siblings().prop("style", `text-decoration: ${$(this).prop("checked") ? 'line-through' : 'none'};`);
                 })
         }
     </script>
