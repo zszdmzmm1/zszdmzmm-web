@@ -16,9 +16,7 @@ if (title) {
 
 
 //屏蔽https://htmlcheatsheet.com/jquery/的广告
-document.querySelectorAll("[class^='minh'] iframe").forEach(function (element){
-    element.style.display = "none";
+document.querySelectorAll("[class^='minh']").forEach(function (element){
+    //element.parentElement.parentElement.parentElement.firstChild.lastChild;
+    element.parentElement.parentElement.parentElement.firstChild.lastChild.click();
 })
-// for(let i=0; i < arr.length; i++){
-//     arr[i].style.display = "none";
-// }
