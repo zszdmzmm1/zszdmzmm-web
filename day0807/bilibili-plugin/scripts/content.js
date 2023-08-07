@@ -1,12 +1,12 @@
 let isFirst = true;
 
 setInterval(function () {
-    const timeElement = document.querySelectorAll("div.video-episode-card .video-episode-card__info-duration");
+    let timeElement = document.querySelectorAll("div.video-episode-card .video-episode-card__info-duration");
     let finalTime = 0;
     let isStart = false;
     timeElement.forEach(function (element, index) {
         {
-            if (element.parentElement.querySelector("img").getAttribute("style") !== "display:none;") {
+            if (element.parentElement.querySelector("img").getAttribute("style") === "") {
                 isStart = true;
             }
             if (isStart) {
@@ -23,17 +23,21 @@ setInterval(function () {
     hour = Math.floor(finalTime / 3600);
     minute = Math.floor(finalTime / 60) % 60;
     second = finalTime % 60;
+    if(minute < 10){
+        minute = "0" + minute;
+    }
+    if(second < 10){
+        second = "0" + second;
+    }
     let finalTimeString = hour + ":" + minute + ":" + second;
     let element = document.createElement("div");
     element.innerText = "剩余时长:" + finalTimeString;
     element.className = "remainTime";
     element.style = "margin-right: 8px";
-    if(isFirst){
-        isFirst = false;
+    if(!document.querySelector("div.remainTime")){
+        //isFirst = false;
         document.querySelector(".play-num").after(element);
     }else{
-        console.log(element.innerText)
-        console.log(document.querySelector("div.remainTime").innerText);
         document.querySelector("div.remainTime").innerText = element.innerText;
     }
 }, 1000);
