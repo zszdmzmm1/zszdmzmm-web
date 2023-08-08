@@ -1,8 +1,25 @@
-if(document.querySelector("div.video-section-list")){
-    //每一秒执行一次
+const pageType1 = ["div.video-section-list", "div.video-episode-card__info-duration", ".play-num"];
+const pageType2 = ["ul.list-box", "ul.list-box div.duration", "div.head-left"];
+let pageType = [pageType1, pageType2,  pageType3];
+let selectorStringSet;
+let isVideoListPage = false;
+let isFlag = true;
+for (let i = 0; i < pageType.length; i++){
+    if(document.querySelector(pageType[i][0])){
+        selectorStringSet = pageType[i];
+        isVideoListPage = true;
+    }
+}
+
+
+
+if(isVideoListPage || isFlag){
+    //每秒执行一次
     setInterval(function () {
+
         //爬取集合中包含视频时间的元素
-        let timeElement = document.querySelectorAll("div.video-episode-card .video-episode-card__info-duration");
+        let timeElement = document.querySelectorAll(selectorStringSet[1]);
+        //let timeElement = pageElementsAdapter("div.video-episode-card__info-duration", "ul.list-box div.duration");
         //集合视频总时长
         let videoTimeSum = 0;
         //开始计算剩余时间标志
@@ -10,8 +27,9 @@ if(document.querySelector("div.video-section-list")){
         //循环每一个时间元素
         timeElement.forEach(function (element) {
             {
+                let imgStyle = element.parentElement.querySelector("img");
                 //判断正在播放的视频，改变开始计算的标志的状态
-                if (element.parentElement.querySelector("img").getAttribute("style") === "") {
+                if ( !(imgStyle.hasAttribute("style")) || imgStyle.getAttribute("style") === "") {
                     isStart = true;
                 }
                 //计算每个视频的时长，相加
@@ -43,11 +61,15 @@ if(document.querySelector("div.video-section-list")){
         element.className = "remainTime";
         element.style = "margin-right: 8px";
         if (!document.querySelector("div.remainTime")) {
-            document.querySelector(".play-num").after(element);
+            document.querySelector(selectorStringSet[2]).after(element);
         } else {
             document.querySelector("div.remainTime").innerText = element.innerText;
         }
     }, 1000);
+
+    function run(){
+
+    }
 
 //将时间正常表达形式转化为秒数并返回
     function getSeconds(timeString) {
