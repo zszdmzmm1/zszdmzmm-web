@@ -1,0 +1,80 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.07);
+    background: rgba(128, 128, 128, 0.07);
+    box-shadow: 0 1px rgba(128, 128, 128, 0.2);
+    margin-bottom: 100px;
+}
+
+div.header-content{
+    width: 95%;
+    margin: 0 auto;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.header-left, div.header-right{
+    padding: 10px;
+    display: flex;
+}
+
+div.header-left img{
+    margin-right: 8px;
+}
+
+div.header-left span{
+    align-self: center;
+}
+
+
+div.header-right a{
+    text-decoration: none;
+    color: black;
+    align-self: center;
+}
+
+h1{
+    text-align: center;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+main img{
+    margin: 0 auto;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 200px;
+    width: 100%;
+    border-top: 1px solid rgba(128, 128, 128, 0.07);
+    background: rgba(128, 128, 128, 0.07);
+    box-shadow: 0 1px rgba(128, 128, 128, 0.2);
+    align-self: center;
+}
+
+footer span{
+    align-self: center;
+}
+
+span
+
+

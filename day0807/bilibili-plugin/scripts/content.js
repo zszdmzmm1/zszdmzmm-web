@@ -67,4 +67,3 @@ if(document.querySelector("div.video-section-list")){
         return timeNum;
     }
 }
-
